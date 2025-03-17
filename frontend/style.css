@@ -1,105 +1,265 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    color: white;
-    text-align: center;
+
+* {
     margin: 0;
     padding: 0;
-}
+    box-sizing: border-box;
+  }
 
-h1 {
-    font-size: 28px;
-    margin: 20px 0;
-}
+  body {
+    font-family: 'Gordita', sans-serif;
+    background: rgb(42,77,89);
+    background: linear-gradient(114deg, rgba(42,77,89,1) 0%, rgba(32,58,67,1) 23%, rgba(25,43,50,1) 44%, rgba(32,58,67,1) 65%, rgba(65,116,117,1) 82%, rgba(241,202,116,1) 100%);    color: #fff;
+    height: 100vh;
+    overflow: hidden; 
+  }
+  
+  .split-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .left-section,
+  .right-section {
+    width: 50%;
+    padding: 30px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(4px);
+  }
+  .user-section {
+    margin-top: 65px;
+  }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+  .left-section::-webkit-scrollbar,
+  .right-section::-webkit-scrollbar {
+    width: 6px;
+  }
+  .left-section::-webkit-scrollbar-thumb,
+  .right-section::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+  }
+  .left-section::-webkit-scrollbar-thumb:hover,
+  .right-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  section {
     background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
+    animation: fadeIn 0.6s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    } 
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.178);
+    border-radius: 2px;
+    padding-bottom: 5px;
+  }
 
-input, select, button {
-    width: 90%;
-    max-width: 300px;
-    padding: 10px;
-    margin: 8px 0;
+  strong {
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .auction-section {
+    padding: 30px;
+  }
+
+  .admin-section {
+    padding: 30px;
+  }
+
+  .auction-info {
+    padding: 30px;
+    font-size: 1.1rem;
+  }
+
+  section p {
+    margin: 10px 0;
+    line-height: 1.4;
+  }
+
+  .flexik {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
     border: none;
+    outline: none;
     border-radius: 5px;
     font-size: 16px;
-}
+    color: #46423d;
+    background: #fefefe;
+    box-shadow: 2px 3px 8px rgba(41, 40, 40, 0.253);
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+  }
+  input:focus,
+  select:focus {
+    border: 2px solid #faba5a;
+    box-shadow: -1px 2px 10px #fa875a;
+  }
 
-input, select {
-    background: white;
-    color: black;
-    text-align: center;
-}
-
-button {
-    background: #ff9800;
-    color: white;
-    font-weight: bold;
+  button {
+    font-family: 'Gordita', sans-serif;
     cursor: pointer;
-    transition: 0.3s;
-}
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin: 5px 0;
+    box-shadow: 2px 3px 8px rgba(41, 40, 40, 0.253);
+  }
 
-button:hover {
-    background: #e68900;
-}
-
-#status {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-ul {
+  .primary-btn {
+    margin: 0px;
+    background: linear-gradient(45deg, #faba5a, #fd683a);
+    color: #fff;
+  }
+  .primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 152, 0, 0.4);
+  }
+  
+  .secondary-btn {
+    background: linear-gradient(45deg, #9e9e9e, #757575);
+    color: #fff;
+    margin: 0px;
+  }
+  .secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(158, 158, 158, 0.4);
+  }
+  
+  .admin-section .admin-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .registered-users ul {
     list-style: none;
     padding: 0;
-}
-
-ul li {
+  }
+  .registered-users li {
     background: rgba(255, 255, 255, 0.2);
-    padding: 8px;
-    margin: 5px;
+    padding: 10px;
+    margin-bottom: 8px;
     border-radius: 5px;
-}
+    transition: background 0.3s ease;
+  }
+  .registered-users li:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .operation-status {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px; 
+  }
 
-
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 15px;
+    input,
+    select,
+    textarea {
+      font-family: 'Gordita', sans-serif;
+      font-size: 1rem;
+  }
+  
+  @media (max-width: 900px) {
+    .split-container {
+      flex-direction: column;
     }
-
-    h1 {
-        font-size: 24px;
+    .left-section,
+    .right-section {
+      width: 100%;
+      height: auto;
     }
-
-    input, select, button {
-        width: 100%;
-        font-size: 14px;
+    .main-title {
+      font-size: 1.8rem;
     }
-
-    .auction-inputs {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
+    section h2 {
+      font-size: 1.3rem;
     }
-    
-    .auction-inputs input {
-        flex: 1;
-        padding: 8px;
-        font-size: 16px;
-    }
-    
-    .auction-section button {
-        display: block;
-        width: 100%;
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 16px;
-    }
-}
+  }
+  
+@font-face {
+    font-family: 'Gordita';
+    src: url('./fonts/Gordita\ Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gordita';
+    src: url('./fonts/Gordita\ Regular\ Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Gordita';
+    src: url('./fonts/Gordita\ Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gordita';
+    src: url('./fonts/Gordita\ Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gordita';
+    src: url('./fonts/Gordita\ Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .admin-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+  }
